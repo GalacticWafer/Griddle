@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Griddle</string>
+    <string name="user_keyboard">user_keyboard</string>
+    <string name="user_prefs">user_prefs</string>
+    <string name="auto_caps">user_prefs</string>
+    <string name="auto_punctuation">user_prefs</string>
+    <string name="auto_correct">user_prefs</string>
+    <string name="default_text_replacements">user_prefs</string>
+    <string name="first_run">user_prefs</string>
+    <string name="primary_alpha_layer">user_prefs</string>
+    <string name="primary_language">user_prefs</string>
+    <string name="redaction_enabled">user_prefs</string>
+    <string name="language_preferences">user_prefs</string>
+    <string name="board_x">user_prefs</string>
+    <string name="board_width">user_prefs</string>
+    <string name="board_height">user_prefs</string>
+    <string name="turbo_mode">user_prefs</string>
+    <string name="keyboard_prefs">keyboard_prefs</string>
+</resources>

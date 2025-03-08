@@ -1,0 +1,10 @@
+<!-- res/values/attrs.xml -->
+<resources>
+    <declare-styleable name="AppTheme">
+        <attr name="colorPrimaryVariant" format="color"/>
+        <attr name="colorOnPrimary" format="color"/>
+        <attr name="colorSecondary" format="color"/>
+        <attr name="colorSecondaryVariant" format="color"/>
+        <attr name="colorOnSecondary" format="color"/>
+    </declare-styleable>
+</resources>

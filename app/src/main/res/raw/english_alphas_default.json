@@ -1,0 +1,400 @@
+{
+  "maskdata": {
+    "rowCount": 4,
+    "columnCount": 4
+  },
+  "mappings": {
+    "0_0": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "a",
+        "Hold": "1",
+        "SwipeNorthWest": "",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": " ",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "-",
+        "BoomerangEast": "÷",
+        "SwipeSouthEast": "v",
+        "BoomerangSouthEast": "V",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "$",
+        "BoomerangSouthWest": "¥",
+        "SwipeWest": "",
+        "BoomerangWest": "$",
+        "CircleClockwise": "A",
+        "CircleCounterClockwise": "A"
+      }
+    },
+    "0_1": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "n",
+        "Hold": "2",
+        "SwipeNorthWest": "`",
+        "BoomerangNorthWest": "‘",
+        "SwipeNorth": "^",
+        "BoomerangNorth": "ˇ",
+        "SwipeNorthEast": "´",
+        "BoomerangNorthEast": "’",
+        "SwipeEast": "!",
+        "BoomerangEast": "¡",
+        "SwipeSouthEast": "\\",
+        "BoomerangSouthEast": "—",
+        "SwipeSouth": "l",
+        "BoomerangSouth": "L",
+        "SwipeSouthWest": "/",
+        "BoomerangSouthWest": "–",
+        "SwipeWest": "+",
+        "BoomerangWest": "×",
+        "CircleClockwise": "2",
+        "CircleCounterClockwise": "N"
+      }
+    },
+    "0_2": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "i",
+        "Hold": "3",
+        "SwipeNorthWest": "",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "\n",
+        "BoomerangNorth": "HOME",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "",
+        "BoomerangEast": "",
+        "SwipeSouthEast": "€",
+        "BoomerangSouthEast": "£",
+        "SwipeSouth": "=",
+        "BoomerangSouth": "±",
+        "SwipeSouthWest": "x",
+        "BoomerangSouthWest": "X",
+        "SwipeWest": "?",
+        "BoomerangWest": "¿",
+        "CircleClockwise": "I",
+        "CircleCounterClockwise": "I"
+      }
+    },
+    "0_3": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "{ ⁜ }",
+        "Hold": "{SETTINGS}",
+        "SwipeNorthWest": "",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "{OPEN_TEXT_PREDICTION_OR_INCREASE_BOARD_SIZE}",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "{MOVE_BOARD_RIGHT}",
+        "BoomerangEast": "",
+        "SwipeSouthEast": "{ SETTINGS }",
+        "BoomerangSouthEast": "",
+        "SwipeSouth": "{DECREASE_BOARD_SIZE_OR_CLOSE_TEXT_PREDICTION}",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "{SETTINGS}",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "",
+        "BoomerangWest": "",
+        "CircleClockwise": "",
+        "CircleCounterClockwise": ""
+      }
+    },
+    "1_0": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "h",
+        "Hold": "4",
+        "SwipeNorthWest": "{",
+        "BoomerangNorthWest": "}",
+        "SwipeNorth": "ë",
+        "BoomerangNorth": "Ë",
+        "SwipeNorthEast": "%",
+        "BoomerangNorthEast": "‰",
+        "SwipeEast": "k",
+        "BoomerangEast": "K",
+        "SwipeSouthEast": "_",
+        "BoomerangSouthEast": "¬",
+        "SwipeSouth": "ù",
+        "BoomerangSouth": "Ù",
+        "SwipeSouthWest": "[",
+        "BoomerangSouthWest": "]",
+        "SwipeWest": "(",
+        "BoomerangWest": ")",
+        "CircleClockwise": "H",
+        "CircleCounterClockwise": "H"
+      }
+    },
+    "1_1": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "o",
+        "Hold": "5",
+        "SwipeNorthWest": "q",
+        "BoomerangNorthWest": "Q",
+        "SwipeNorth": "u",
+        "BoomerangNorth": "U",
+        "SwipeNorthEast": "p",
+        "BoomerangNorthEast": "P",
+        "SwipeEast": "b",
+        "BoomerangEast": "B",
+        "SwipeSouthEast": "j",
+        "BoomerangSouthEast": "J",
+        "SwipeSouth": "d",
+        "BoomerangSouth": "D",
+        "SwipeSouthWest": "g",
+        "BoomerangSouthWest": "G",
+        "SwipeWest": "c",
+        "BoomerangWest": "C",
+        "CircleClockwise": "O",
+        "CircleCounterClockwise": "O"
+      }
+    },
+    "1_2": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "r",
+        "Hold": "6",
+        "SwipeNorthWest": "|",
+        "BoomerangNorthWest": "¶",
+        "SwipeNorth": "{ ▲ }",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": "}",
+        "BoomerangNorthEast": "{",
+        "SwipeEast": ")",
+        "BoomerangEast": "(",
+        "SwipeSouthEast": "]",
+        "BoomerangSouthEast": "[",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "@",
+        "BoomerangSouthWest": "ª",
+        "SwipeWest": "m",
+        "BoomerangWest": "M",
+        "CircleClockwise": "6",
+        "CircleCounterClockwise": "R"
+      }
+    },
+    "1_3": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "{TOGGLE_NUMBER_LAYER}",
+        "Hold": "",
+        "SwipeNorthWest": "{ ✂ }",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "{ ⧉ }",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "",
+        "BoomerangEast": "",
+        "SwipeSouthEast": "",
+        "BoomerangSouthEast": "",
+        "SwipeSouth": "{ \uD83D\uDCCB }",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "{ [\uD83D\uDD34REC] }",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "",
+        "BoomerangWest": "",
+        "CircleClockwise": "{SELECT_ALL}",
+        "CircleCounterClockwise": "{SELECT_ALL}"
+      }
+    },
+    "2_0": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "t",
+        "Hold": "7",
+        "SwipeNorthWest": "~",
+        "BoomerangNorthWest": "˜",
+        "SwipeNorth": "¨",
+        "BoomerangNorth": "˝",
+        "SwipeNorthEast": "y",
+        "BoomerangNorthEast": "Y",
+        "SwipeEast": "*",
+        "BoomerangEast": "†",
+        "SwipeSouthEast": " ⇥ ",
+        "BoomerangSouthEast": "{ ⇤ }",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "<",
+        "BoomerangWest": "‹",
+        "CircleClockwise": "T",
+        "CircleCounterClockwise": "T"
+      }
+    },
+    "2_1": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "e",
+        "Hold": "8",
+        "SwipeNorthWest": "\"",
+        "BoomerangNorthWest": "“",
+        "SwipeNorth": "w",
+        "BoomerangNorth": "W",
+        "SwipeNorthEast": "'",
+        "BoomerangNorthEast": "”",
+        "SwipeEast": "z",
+        "BoomerangEast": "Z",
+        "SwipeSouthEast": ":",
+        "BoomerangSouthEast": "„",
+        "SwipeSouth": ".",
+        "BoomerangSouth": "…",
+        "SwipeSouthWest": ",",
+        "BoomerangSouthWest": "‚",
+        "SwipeWest": "",
+        "BoomerangWest": "",
+        "CircleClockwise": "E",
+        "CircleCounterClockwise": "E"
+      }
+    },
+    "2_2": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "s",
+        "Hold": "9",
+        "SwipeNorthWest": "f",
+        "BoomerangNorthWest": "F",
+        "SwipeNorth": "&",
+        "BoomerangNorth": "§",
+        "SwipeNorthEast": "°",
+        "BoomerangNorthEast": "º",
+        "SwipeEast": ">",
+        "BoomerangEast": "›",
+        "SwipeSouthEast": " ",
+        "BoomerangSouthEast": " ",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": ";",
+        "BoomerangSouthWest": ";",
+        "SwipeWest": "#",
+        "BoomerangWest": "£",
+        "CircleClockwise": "S",
+        "CircleCounterClockwise": "S"
+      }
+    },
+    "2_3": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "{ ⌫ }",
+        "Hold": "",
+        "SwipeNorthWest": "{BACKSPACE_NO_IMAGE}",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "{DELETE}",
+        "BoomerangEast": "{DELETE_WORD_RIGHT}",
+        "SwipeSouthEast": "",
+        "BoomerangSouthEast": "",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "{BACKSPACE_NO_IMAGE}",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "{BACKSPACE_NO_IMAGE}",
+        "BoomerangWest": "{DELETE_WORD_LEFT}",
+        "CircleClockwise": "",
+        "CircleCounterClockwise": ""
+      }
+    },
+    "3_0": {
+      "layout": {
+        "width": 3,
+        "height": 1
+      },
+      "variants": {
+        "Click": "{ S P A C E }",
+        "Hold": "0",
+        "SwipeNorthWest": "",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "{↑}",
+        "BoomerangNorth": "{PGUP}",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "{ → }",
+        "BoomerangEast": "{MOVE_WORD_RIGHT}",
+        "SwipeSouthEast": "",
+        "BoomerangSouthEast": "",
+        "SwipeSouth": "{ ↓ }",
+        "BoomerangSouth": "{PGDN}",
+        "SwipeSouthWest": "",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "{ ← }",
+        "BoomerangWest": "{MOVE_WORD_LEFT}",
+        "CircleClockwise": "0",
+        "CircleCounterClockwise": " "
+      }
+    },
+    "3_1": {
+      "layout": {
+        "width": 1,
+        "height": 1
+      },
+      "variants": {
+        "Click": "{ ⏎ }",
+        "Hold": "{ ⏎ }",
+        "SwipeNorthWest": "",
+        "BoomerangNorthWest": "",
+        "SwipeNorth": "",
+        "BoomerangNorth": "",
+        "SwipeNorthEast": "",
+        "BoomerangNorthEast": "",
+        "SwipeEast": "",
+        "BoomerangEast": "",
+        "SwipeSouthEast": "",
+        "BoomerangSouthEast": "",
+        "SwipeSouth": "",
+        "BoomerangSouth": "",
+        "SwipeSouthWest": "",
+        "BoomerangSouthWest": "",
+        "SwipeWest": "",
+        "BoomerangWest": "",
+        "CircleClockwise": "",
+        "CircleCounterClockwise": ""
+      }
+    }
+  }
+}
