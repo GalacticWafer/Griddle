@@ -11,9 +11,12 @@ import dagger.hilt.components.SingletonComponent
 import com.galacticware.griddle.domain.model.error.Errors
 import com.galacticware.griddle.domain.model.keyboard.Keyboard
 import com.galacticware.griddle.domain.model.keyboard.definition.designs.griddle.english.keyboard.GriddleEnglishKeyBoardBuilder
+import com.galacticware.griddle.domain.model.shared.gesturedetection.DefaultGestureDetector
+import com.galacticware.griddle.domain.model.shared.gesturedetection.IGestureDetector
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementDao
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementDatabase
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementViewModel
+import com.galacticware.griddle.domain.model.util.gesturedetection.CustomGestureDetectorProvider
 import com.galacticware.griddle.domain.view.KeyboardView
 import java.time.LocalDateTime
 import javax.inject.Singleton
@@ -36,6 +39,10 @@ class AppModule(private val context: Context) {
     constructor() : this(Application())
 
     @Provides
+    fun provideGestureDetector(): IGestureDetector =
+        CustomGestureDetectorProvider().provideGestureDetector() ?: DefaultGestureDetector
+
+    @Provides
     fun provideKeyboardFactory(): KeyboardFactory {
         if (LocalDateTime.now().isAfter(LocalDateTime.of(2025, 5, 1, 0, 0))) {
             throw Errors.EXPIRED_TEST_APP.send()
@@ -54,7 +61,7 @@ class AppModule(private val context: Context) {
     @Provides @Singleton fun provideContext(application: Application) = application.applicationContext
 
     @Provides fun provideKeyboard(): Keyboard {
-//        val griddleEnglishLayer = GriddleEnglishLayer(context)
+        //  val griddleEnglishLayer = GriddleEnglishLayer(context)
         // We have to manually create the first layer to prevent the Keyboard.currentLayer
         // (which is a lateinit var) from crashing the app.
         return Keyboard.loadKeyboard(context)?: GriddleEnglishKeyBoardBuilder.build(context)

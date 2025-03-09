@@ -25,6 +25,9 @@ tensorflow-lite = "2.16.1"
 tensorflow-lite-support = "0.4.4"
 tensorflow-text = "2.12.0"
 material = "1.12.0"
+agp = "8.3.2"
+kotlinVersion = "2.0.10"
+espressoCore = "3.6.1"
 
 [libraries]
 androidx-preference-ktx-v111 = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx-version" }
@@ -92,3 +95,7 @@ tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", v
 tensorflow-text = { module = "org.tensorflow:tensorflow-text", version.ref = "tensorflow-text" }
 
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+[plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }

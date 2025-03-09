@@ -46,6 +46,10 @@ android {
     }
 
     signingConfigs {
+        getByName("debug") {
+            storeFile = file("/Users/malcolmjohnson/build-remotely-keystore")
+            keyAlias = "build-remotely"
+        }
         create("release") {
             val localProperties = getLocalProperties(project)
             keyAlias = localProperties.getProperty("KEY_ALIAS")
@@ -75,7 +79,7 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
-            isDebuggable = false
+            isDebuggable = true
         }
 
         debug {
@@ -118,8 +122,7 @@ dependencies {
      * Choose one of the following, but not both (or your own lib with some other IGestureDetector
      * implementation).
      */
-    implementation(files("libs/messageasestylegesturedetector.aar"))
-    //    implementation(files("libs/defaultgesturedetector.aar"))
+//    implementation(files("libs/messageasestylegesturedetector.aar"))
 
 
     // Kotlin standard library
@@ -132,6 +135,8 @@ dependencies {
 
     // Dagger-Hilt
     implementation(libs.hilt.android)
+    implementation(project(":ModularGestureDetectorBase"))
+    implementation(project(":MessageaseStyleGestureDetector"))
     kapt(libs.hilt.android.compiler)
 
     // Gson

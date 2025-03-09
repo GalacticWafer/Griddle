@@ -13,3 +13,4 @@ app/src/main/java/org/galacticware/griddle/keyboarddefinition/opensource
 .vscode/
 /app/src/main/assets/prediction/language/french/
 app/libs/messageasestylegesturedetector.aar
+/MessageaseStyleGestureDetector/

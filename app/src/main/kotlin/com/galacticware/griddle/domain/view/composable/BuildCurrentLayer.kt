@@ -55,7 +55,7 @@ import com.galacticware.griddle.domain.model.operation.base.SavedExecution
 import com.galacticware.griddle.domain.model.operation.implementation.noargs.backspace.BaseBackspaceOperation
 import com.galacticware.griddle.domain.model.operation.implementation.noargs.noop.NoOp
 import com.galacticware.griddle.domain.model.screen.NestedAppScreen
-import com.galacticware.griddle.domain.model.shared.gesturedetecton.IGestureDetector.Companion.DEFAULT_MAXIMUM_DISTANCE_TO_REMOVE_JITTER
+import com.galacticware.griddle.domain.model.shared.gesturedetection.IGestureDetector.Companion.DEFAULT_MAXIMUM_DISTANCE_TO_REMOVE_JITTER
 import com.galacticware.griddle.domain.model.usercontolled.GestureTracingChoice
 import com.galacticware.griddle.domain.model.usercontolled.TurboModeChoice
 import com.galacticware.griddle.domain.model.usercontolled.UserDefinedValues

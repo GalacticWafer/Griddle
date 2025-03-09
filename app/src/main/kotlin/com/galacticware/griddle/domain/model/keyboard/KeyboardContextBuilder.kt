@@ -1,30 +1,32 @@
 package com.galacticware.griddle.domain.model.keyboard
 
-import com.galacticware.griddle.domain.model.operation.implementation.noargs.backspace.BaseBackspaceOperation
 import android.content.Context
 import android.view.MotionEvent
 import android.view.View
+import com.galacticware.griddle.domain.model.button.GestureButton
 import com.galacticware.griddle.domain.model.geometry.GridPosition
-import com.galacticware.griddle.domain.model.shared.Point
 import com.galacticware.griddle.domain.model.gesture.Gesture
 import com.galacticware.griddle.domain.model.gesture.GesturePerformanceInfo
 import com.galacticware.griddle.domain.model.gesture.KeyboardContext
-import com.galacticware.griddle.domain.model.button.GestureButton
 import com.galacticware.griddle.domain.model.input.AppInputFocus
 import com.galacticware.griddle.domain.model.input.GriddleInputConnection
 import com.galacticware.griddle.domain.model.input.IMEService
 import com.galacticware.griddle.domain.model.modifier.ModifierKeyKind
 import com.galacticware.griddle.domain.model.operation.base.SavedExecution
+import com.galacticware.griddle.domain.model.operation.implementation.noargs.backspace.BaseBackspaceOperation
+import com.galacticware.griddle.domain.model.screen.NestedAppScreen
+import com.galacticware.griddle.domain.model.shared.Point
+import com.galacticware.griddle.domain.model.shared.gesturedetection.IGestureDetector
 import com.galacticware.griddle.domain.model.usercontolled.UserDefinedValues
 import com.galacticware.griddle.domain.view.composable.nestedappscreen.BuildYourOwnKeyboardScreen
-import com.galacticware.griddle.domain.model.screen.NestedAppScreen
-import com.galacticware.griddle.domain.model.util.gesturedetection.GestureDetector
+import javax.inject.Inject
 
 data class KeyboardContextBuilder(
     var applicationContext: Context,
     var previousOperation: SavedExecution,
     var keyboard: Keyboard,
 ) {
+    @Inject lateinit var gestureDetector : IGestureDetector
     private var gestureButton: GestureButton? = null
     var touchPoints: MutableList<Point> = mutableListOf()
     var gesture: Gesture? = null
@@ -63,7 +65,7 @@ data class KeyboardContextBuilder(
         isTurboModeEnabled: Boolean,
     ): GesturePerformanceInfo = run {
         val userDefinedValues = UserDefinedValues.current
-        val (genericGestureType, swipeDirection, rotationDirection) = GestureDetector.determineGesture(
+        val (genericGestureType, swipeDirection, rotationDirection) = gestureDetector.determineGesture(
             minimumHoldTime = userDefinedValues.minimumHoldTime,
             minimumDragLength = userDefinedValues.minimumDragLength,
             duration = event.eventTime - event.downTime,
