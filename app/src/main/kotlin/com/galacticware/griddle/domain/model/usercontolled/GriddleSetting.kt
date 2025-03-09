@@ -16,12 +16,6 @@ enum class GriddleSetting(
     val isToggleable: Boolean = false,
     val prettyName: String,
 ) {
-    /**
-     * The minimum amount of time that the user must hold their finger on the screen before a hold
-     * is registered. It has a total number of 75 steps, with a step size of 10, and a minimum
-     * value of 250. This means that the maximum value is:
-     * 250 + 10 * 175 = 250 + 1750 = 2000 == 2 seconds.
-     */
     MINIMUM_HOLD_TIME(
         defaultValue = 50,
         minValue = 250,
@@ -30,44 +24,24 @@ enum class GriddleSetting(
         prettyName = "minimum hold time",
     ),
 
-    /**
-     * The vibration choice and intensity are stored different settings, but they are both used to
-     * determine if the user wants vibration feedback, and how intense that feedback should be.
-     * The vibration choice has a total number of 25 steps, with a step size of 10, and a minimum
-     * value of 1. This means that the maximum value is:
-     * 1 + 10 * 25 = 1 + 250 = 251 == 251 units of vibration.
-     */
     IS_VIBRATION_ENABLED(
-        minValue = VibrationChoice.entries[0].ordinal,
-        defaultValue = VibrationChoice.entries.let{ it[it.size - 1].ordinal },
+        defaultValue = VibrationChoice.ON.ordinal,
+        minValue = 0,
         stepSize = 1,
         steps = 1,
         isToggleable = true,
         prettyName = "vibration toggle",
     ),
-    /**
-     * The vibration choice and intensity are stored different settings, but they are both used to
-     * determine if the user wants vibration feedback, and how intense that feedback should be.
-     * The vibration choice has a total number of 25 steps, with a step size of 10, and a minimum
-     * value of 1. This means that the maximum value is:
-     * 1 + 10 * 25 = 1 + 250 = 251 == 251 units of vibration.
-     */
-    IS_TURBO_ENABLED(
-        minValue = TurboModeChoice.entries[0].ordinal,
+
+    IS_TURBO_MODE_ENABLED(
         defaultValue = VibrationChoice.entries.let{ it[it.size - 1].ordinal },
+        minValue = TurboModeChoice.entries[0].ordinal,
         stepSize = 1,
         steps = 1,
         isToggleable = true,
         prettyName = "turbo mode toggle",
     ),
 
-    /**
-     * The vibration choice and intensity are stored different settings, but they are both used to
-     * determine if the user wants vibration feedback, and how intense that feedback should be.
-     * The vibration choice has a total number of 25 steps, with a step size of 10, and a minimum
-     * value of 1. This means that the maximum value is:
-     * 1 + 10 * 25 = 1 + 250 = 251 == 251 units of vibration.
-     */
     VIBRATION_AMPLITUDE(
         defaultValue = 50,
         minValue = 1,
@@ -76,12 +50,6 @@ enum class GriddleSetting(
         prettyName = "vibration amplitude",
     ),
 
-    /**
-     * The minimum distance that the user must drag their finger before a drag is registered. It has
-     * a total number of 24 steps, with a step size of 10, and a minimum value of 60. This means that
-     * the maximum value is:
-     * 60 + 10 * 24 = 60 + 240 = 300 == 300 pixels.
-     */
     MINIMUM_DRAG_LENGTH(
         defaultValue = 100,
         minValue = 5,
@@ -91,7 +59,7 @@ enum class GriddleSetting(
     ),
 
     IS_GESTURE_TRACING_ENABLED(
-        defaultValue = 1,
+        defaultValue = GestureTracingChoice.ON.ordinal,
         minValue = 0,
         stepSize = 1,
         steps = 1,
@@ -131,7 +99,7 @@ enum class GriddleSetting(
         IS_GESTURE_TRACING_ENABLED -> PreferencesHelper.getGestureTracingChoice(context).ordinal
         MINIMUM_HOLD_TIME -> PreferencesHelper.getMinimumHoldTime(context)
         IS_VIBRATION_ENABLED -> PreferencesHelper.getUserVibrationChoice(context).ordinal
-        IS_TURBO_ENABLED -> PreferencesHelper.getTurboModeChoice(context).ordinal
+        IS_TURBO_MODE_ENABLED -> PreferencesHelper.getTurboModeChoice(context).ordinal
         VIBRATION_AMPLITUDE -> PreferencesHelper.getUserVibrationAmplitude(context)
         MINIMUM_DRAG_LENGTH -> PreferencesHelper.getMinimumDragLength(context)
         MINIMUM_CIRCLE_RADIUS -> PreferencesHelper.getMinimumCircleRadius(context)
@@ -159,7 +127,7 @@ enum class GriddleSetting(
             MINIMUM_DRAG_LENGTH -> PreferencesHelper.setMinimumDragLength(context, newValue)
             MINIMUM_CIRCLE_RADIUS -> PreferencesHelper.setMinimumCircleRadius(context, newValue)
             MINIMUM_BACKSPACE_SPAMMING_SPEED -> PreferencesHelper.setBaseBackspaceSpamSpeed(context, newValue)
-            IS_TURBO_ENABLED -> PreferencesHelper.setTurboModeChoice(context, newValue)
+            IS_TURBO_MODE_ENABLED -> PreferencesHelper.setTurboModeChoice(context, newValue)
             else -> throw NotImplementedError("Changing this setting ($this) is not yet supported.")
         }
         UserDefinedValues.currentData(context)

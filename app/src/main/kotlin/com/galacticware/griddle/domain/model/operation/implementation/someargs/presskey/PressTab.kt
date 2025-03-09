@@ -67,7 +67,7 @@ val PressTab = object : Operation({}) {
             }
         }")
 
-        val isShiftPressed = Keyboard.shiftState != ModifierKeyState.NONE
+        val isShiftPressed = Keyboard.shiftState != ModifierKeyState.OFF
         /*when(inputType) {
             0,
             InputType.TYPE_CLASS_DATETIME, InputType.TYPE_CLASS_NUMBER,

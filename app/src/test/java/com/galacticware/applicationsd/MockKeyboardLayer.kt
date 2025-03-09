@@ -59,12 +59,12 @@ class MockKeyboardLayer : LayerDefinable {
                             ModifierKeyKind.ALT -> Keyboard.altState
                         }
                         when (modifierState) {
-                            ModifierKeyState.NONE -> themes.none
-                            ModifierKeyState.ONCE -> themes.once
-                            ModifierKeyState.REPEAT -> themes.repeat
+                            ModifierKeyState.OFF -> themes.none
+                            ModifierKeyState.ONE_SHOT -> themes.once
+                            ModifierKeyState.ON -> themes.repeat
                         }.let {
                             it.withText((if (it.text.let { t -> t?.length == 1 && !t[0].isLetter() } &&
-                                Keyboard.shiftState != ModifierKeyState.NONE)
+                                Keyboard.shiftState != ModifierKeyState.OFF)
                                 it.withText(gesture.currentAssignment.noneTheme.text ?: "")
                             else
                                 it).text ?: "") to gesture

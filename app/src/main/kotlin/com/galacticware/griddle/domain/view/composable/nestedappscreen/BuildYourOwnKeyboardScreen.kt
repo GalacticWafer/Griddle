@@ -98,9 +98,17 @@ import com.galacticware.griddle.domain.viewmodel.BuildYourOwnKeyboardViewModel
 import kotlinx.serialization.json.Json
 import kotlin.reflect.KClass
 
+val  BuildYourOwnKeyboardScreen = KeyboardDesignerScreen()
 
+/**
+ * Kotlin objects don't support dagger injection. We need screens to be objects only because that's
+ * the recommended way to work with NavController. But we don't actually use NavController, so
+ * we can consider deprecating the use of objects if we run in to more issues.
+ * As a work-around, we declare this [KeyboardDesignerScreen] as a class, and make our object
+ * instance from that.
+ */
 @Serializable
-object BuildYourOwnKeyboardScreen : NestedAppScreen(){
+class KeyboardDesignerScreen : NestedAppScreen(){
     override val addBackButton get() = false
     @Composable
     override fun Show() {
@@ -462,7 +470,7 @@ object BuildYourOwnKeyboardScreen : NestedAppScreen(){
                                     Keyboard.setDesignerLayer(singleButtonLayer)
                                     BuildCurrentLayer(
                                         Keyboard(context, "SingleButtonBYOKBoard", setOf(singleButtonLayer), KeyboardKind.SINGLE_BUTTON_DESIGNER_MODE),
-                                        LocalContext.current,
+                                        LocalContext.current
                                     )
                                 }
                                 Box(
@@ -481,7 +489,10 @@ object BuildYourOwnKeyboardScreen : NestedAppScreen(){
                                                     ReassignmentData(gesture, editorOperation)
                                                 )
                                                 editorOperation.ShowReassignmentScreen(context, gesture)
-                                                BuildCurrentLayer(keyboardContext.keyboard, context)
+                                                BuildCurrentLayer(
+                                                    keyboardContext.keyboard,
+                                                    context
+                                                )
                                             }
                                         }
                                     }

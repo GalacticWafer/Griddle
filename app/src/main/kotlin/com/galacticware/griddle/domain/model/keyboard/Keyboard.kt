@@ -249,13 +249,13 @@ open class Keyboard(
             modifierKeyState2: ModifierKeyState
         ): Int {
             var metaState = 0
-            if (modifierKeyState != ModifierKeyState.NONE) {
+            if (modifierKeyState != ModifierKeyState.OFF) {
                 metaState = metaState or KeyEvent.META_SHIFT_ON
             }
-            if (modifierKeyState1 != ModifierKeyState.NONE) {
+            if (modifierKeyState1 != ModifierKeyState.OFF) {
                 metaState = metaState or KeyEvent.META_CTRL_ON
             }
-            if (modifierKeyState2 != ModifierKeyState.NONE) {
+            if (modifierKeyState2 != ModifierKeyState.OFF) {
                 metaState = metaState or KeyEvent.META_ALT_ON
             }
             return metaState
@@ -316,7 +316,7 @@ open class Keyboard(
         }
 
         fun cancelModifier(modifierKeyKind: ModifierKeyKind) {
-            while (modifierKeyStateFor(modifierKeyKind) != ModifierKeyState.NONE) {
+            while (modifierKeyStateFor(modifierKeyKind) != ModifierKeyState.OFF) {
                 cycleToNextModifierKeyStateFor(modifierKeyKind, ModifierCycleDirection.FORWARD)
             }
         }
@@ -362,7 +362,7 @@ open class Keyboard(
         }
 
         fun cycleToOneShotStateFor(modifierKeyKind: ModifierKeyKind) {
-            while (modifierKeyStateFor(modifierKeyKind) != ModifierKeyState.ONCE) {
+            while (modifierKeyStateFor(modifierKeyKind) != ModifierKeyState.ONE_SHOT) {
                 cycleToNextModifierKeyStateFor(modifierKeyKind, ModifierCycleDirection.FORWARD)
             }
             didLastActionAutoCapitalize = true

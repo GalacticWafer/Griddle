@@ -1,4 +1,4 @@
-package com.galacticware.griddle.domain.model.util.gesturedetection
+package com.galacticware.griddle.domain.model.gesture.detection
 
 import com.galacticware.griddle.domain.model.shared.gesturedetection.DefaultGestureDetector
 import com.galacticware.griddle.domain.model.shared.gesturedetection.IGestureDetector

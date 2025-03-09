@@ -57,7 +57,7 @@ class IMEService : LifecycleInputMethodService(),
         // For example, you can call a function here
         currentInputConnection?.getExtractedText(ExtractedTextRequest(), 0)?.let { extractedText ->
             val (selectionStart, selectionEnd) = extractedText.let { it.selectionStart to it.selectionEnd }
-            if(selectionStart == selectionEnd && Keyboard.shiftState == ModifierKeyState.NONE) {
+            if(selectionStart == selectionEnd && Keyboard.shiftState == ModifierKeyState.OFF) {
                 TextSelectionAnchor.currentPosition = null
             }
             if (Keyboard.wasLastActionBackspace) {

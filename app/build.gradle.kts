@@ -79,7 +79,7 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
-            isDebuggable = true
+            isDebuggable = false
         }
 
         debug {
@@ -117,13 +117,7 @@ android {
 
 
 dependencies {
-    /**
-     * IMPORTANT!!!!
-     * Choose one of the following, but not both (or your own lib with some other IGestureDetector
-     * implementation).
-     */
-//    implementation(files("libs/messageasestylegesturedetector.aar"))
-
+    implementation(project(":ModularGestureDetectorBase"))
 
     // Kotlin standard library
     implementation(libs.kotlin.stdlib)
@@ -135,8 +129,6 @@ dependencies {
 
     // Dagger-Hilt
     implementation(libs.hilt.android)
-    implementation(project(":ModularGestureDetectorBase"))
-    implementation(project(":MessageaseStyleGestureDetector"))
     kapt(libs.hilt.android.compiler)
 
     // Gson

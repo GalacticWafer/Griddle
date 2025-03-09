@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -31,8 +30,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.delay
 import com.galacticware.griddle.android.dagger.DefaultKeyboardFactory
 import com.galacticware.griddle.android.dagger.KeyboardFactory
@@ -40,7 +37,6 @@ import com.galacticware.griddle.domain.model.geometry.GridPosition
 import com.galacticware.griddle.domain.model.gesture.Gesture
 import com.galacticware.griddle.domain.model.gesture.KeyboardContext
 import com.galacticware.griddle.domain.model.appsymbol.AppSymbol
-import com.galacticware.griddle.domain.model.input.IMEService
 import com.galacticware.griddle.domain.model.keyboard.Keyboard
 import com.galacticware.griddle.domain.model.operation.base.OperationTag
 import com.galacticware.griddle.domain.model.operation.implementation.someargs.switchscreens.findUnsupportedOperationsWithMessages
@@ -50,7 +46,6 @@ import com.galacticware.griddle.domain.view.composable.BuildCurrentLayer
 import com.galacticware.griddle.domain.view.composable.ResizingAndMovementBoundingBox
 import com.galacticware.griddle.domain.view.composable.nestedappscreen.ClipboardScreen
 import com.galacticware.griddle.domain.model.screen.NestedAppScreen
-import com.galacticware.griddle.domain.viewmodel.IMEServiceViewModel
 import javax.inject.Inject
 import kotlin.math.roundToInt
 

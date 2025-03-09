@@ -153,9 +153,9 @@ abstract class Gesture(
             ModifierKeyKind.ALT -> Keyboard.altState
         }
         return when (modifierKeyState) {
-            ModifierKeyState.NONE -> assignment.noneTheme
-            ModifierKeyState.ONCE -> assignment.onceTheme
-            ModifierKeyState.REPEAT -> assignment.repeatTheme
+            ModifierKeyState.OFF -> assignment.noneTheme
+            ModifierKeyState.ONE_SHOT -> assignment.onceTheme
+            ModifierKeyState.ON -> assignment.repeatTheme
         }
     }
 

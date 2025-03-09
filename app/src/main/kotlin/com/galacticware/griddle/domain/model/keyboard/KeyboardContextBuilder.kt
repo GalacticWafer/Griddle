@@ -8,6 +8,7 @@ import com.galacticware.griddle.domain.model.geometry.GridPosition
 import com.galacticware.griddle.domain.model.gesture.Gesture
 import com.galacticware.griddle.domain.model.gesture.GesturePerformanceInfo
 import com.galacticware.griddle.domain.model.gesture.KeyboardContext
+import com.galacticware.griddle.domain.model.gesture.gestureDetector
 import com.galacticware.griddle.domain.model.input.AppInputFocus
 import com.galacticware.griddle.domain.model.input.GriddleInputConnection
 import com.galacticware.griddle.domain.model.input.IMEService
@@ -26,7 +27,6 @@ data class KeyboardContextBuilder(
     var previousOperation: SavedExecution,
     var keyboard: Keyboard,
 ) {
-    @Inject lateinit var gestureDetector : IGestureDetector
     private var gestureButton: GestureButton? = null
     var touchPoints: MutableList<Point> = mutableListOf()
     var gesture: Gesture? = null

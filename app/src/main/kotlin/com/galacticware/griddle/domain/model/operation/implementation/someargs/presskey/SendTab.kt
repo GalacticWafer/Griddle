@@ -28,7 +28,7 @@ val SendTab = object : Operation({}) {
     override fun executeOperation(keyboardContext: KeyboardContext) {
         savedTextReplacement?.let { TextReplacement.tryTextReplacementRedaction(keyboardContext);currentState = NONE }
             ?: run {
-                val isShiftPressed = Keyboard.shiftState != ModifierKeyState.NONE
+                val isShiftPressed = Keyboard.shiftState != ModifierKeyState.OFF
                 if(isShiftPressed) {
                     keyboardContext.inputConnection.let {
 //                        todo untab the text on the current line

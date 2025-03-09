@@ -44,6 +44,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.galacticware.griddle.domain.model.backspace.VerticalFluctuatingSpeedBackspaceSpammer
 import com.galacticware.griddle.domain.model.button.GestureButton
 import com.galacticware.griddle.domain.model.designer.KeyboardPart
+import com.galacticware.griddle.domain.model.gesture.gestureDetector
 import com.galacticware.griddle.domain.model.shared.Point
 import com.galacticware.griddle.domain.model.shared.GenericGestureType
 import com.galacticware.griddle.domain.model.hapticfeedback.DelayedVibrator
@@ -60,7 +61,6 @@ import com.galacticware.griddle.domain.model.usercontolled.GestureTracingChoice
 import com.galacticware.griddle.domain.model.usercontolled.TurboModeChoice
 import com.galacticware.griddle.domain.model.usercontolled.UserDefinedValues
 import com.galacticware.griddle.domain.model.util.PreferencesHelper
-import com.galacticware.griddle.domain.model.util.gesturedetection.GestureDetector
 import com.galacticware.griddle.domain.view.composable.nestedappscreen.BuildYourOwnKeyboardScreen
 import com.galacticware.griddle.domain.view.composable.nestedappscreen.WordPredictionScreen
 import com.galacticware.griddle.domain.viewmodel.BuildYourOwnKeyboardViewModel
@@ -265,7 +265,7 @@ fun BuildCurrentLayer(
                                         keyboardContextBuilder.touchPoints.clear()
                                         velocityTracker.clear()
                                         keyboardContextBuilder.clearPointsThenAdd(p2)
-                                        GestureDetector.reset()
+                                        gestureDetector.reset()
 
                                         if(NestedAppScreen.stack.peek() == BuildYourOwnKeyboardScreen) {
                                             return@pointerInteropFilter true

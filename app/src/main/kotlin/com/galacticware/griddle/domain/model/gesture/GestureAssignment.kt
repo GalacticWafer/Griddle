@@ -133,11 +133,11 @@ class GestureAssignment(
     val modifierKeyKind get() = _modifierThemeSet.modifierKeyKind
 
     val shiftState: ModifierKeyState? =
-        modifiers.firstOrNull { it == ModifierKeyKind.SHIFT }?.let { ModifierKeyState.NONE }
+        modifiers.firstOrNull { it == ModifierKeyKind.SHIFT }?.let { ModifierKeyState.OFF }
     val ctrlState: ModifierKeyState? =
-        modifiers.firstOrNull { it == ModifierKeyKind.CONTROL }?.let { ModifierKeyState.NONE }
+        modifiers.firstOrNull { it == ModifierKeyKind.CONTROL }?.let { ModifierKeyState.OFF }
     val altState: ModifierKeyState? =
-        modifiers.firstOrNull { it == ModifierKeyKind.ALT }?.let { ModifierKeyState.NONE }
+        modifiers.firstOrNull { it == ModifierKeyKind.ALT }?.let { ModifierKeyState.OFF }
 
     companion object {
         val EMPTY_ASSIGNMENT: GestureAssignment = GestureAssignment(

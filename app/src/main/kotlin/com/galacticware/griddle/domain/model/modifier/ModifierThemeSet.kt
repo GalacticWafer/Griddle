@@ -34,8 +34,8 @@ data class ModifierThemeSet(
         )
 
         /**
-         * Apply the default theme set of gray, yellow, and red to the provided texts for [ModifierKeyState.NONE],
-         * [ModifierKeyState.ONCE], and [ModifierKeyState.REPEAT] states respectively.
+         * Apply the default theme set of gray, yellow, and red to the provided texts for [ModifierKeyState.OFF],
+         * [ModifierKeyState.ONE_SHOT], and [ModifierKeyState.ON] states respectively.
          * For convenience, creators have to provide text only for the none state, or for both
          * the none and once states, or for all three states. In other words, you have to provide text
          * for all the states lower than the highest ordinal [ModifierKeyState] you care about.
@@ -101,12 +101,12 @@ data class ModifierThemeSet(
                 ModifierKeyKind.ALT -> Keyboard.altState
             }
             when (state) {
-                ModifierKeyState.NONE -> textTriple.first
-                ModifierKeyState.ONCE -> textTriple.second
-                ModifierKeyState.REPEAT -> textTriple.third
+                ModifierKeyState.OFF -> textTriple.first
+                ModifierKeyState.ONE_SHOT -> textTriple.second
+                ModifierKeyState.ON -> textTriple.third
             }.let { t->
                if (t.length == 1 && !t[0].isLetter() &&
-                    Keyboard.shiftState != ModifierKeyState.NONE)
+                    Keyboard.shiftState != ModifierKeyState.OFF)
                     textTriple.first
                 else
                     t
@@ -124,14 +124,14 @@ data class ModifierThemeSet(
     ): ModifierThemeSet {
         val (griddleModifierKeyKind, noneColorSet, onceColorSet, repeatColorSet) = copy(none = newColorSet)
         return when (modifierKeyState) {
-            ModifierKeyState.NONE -> ModifierThemeSet(griddleModifierKeyKind, newColorSet, onceColorSet, repeatColorSet)
-            ModifierKeyState.ONCE -> ModifierThemeSet(griddleModifierKeyKind, noneColorSet, newColorSet, repeatColorSet)
-            ModifierKeyState.REPEAT -> ModifierThemeSet(griddleModifierKeyKind, noneColorSet, onceColorSet, newColorSet)
+            ModifierKeyState.OFF -> ModifierThemeSet(griddleModifierKeyKind, newColorSet, onceColorSet, repeatColorSet)
+            ModifierKeyState.ONE_SHOT -> ModifierThemeSet(griddleModifierKeyKind, noneColorSet, newColorSet, repeatColorSet)
+            ModifierKeyState.ON -> ModifierThemeSet(griddleModifierKeyKind, noneColorSet, onceColorSet, newColorSet)
         }
     }
 
     /**
-     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.NONE] theme.
+     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.OFF] theme.
      */
     fun withTextTriple(symbol1: String, symbol2: String = symbol1, symbol3: String = symbol2): ModifierThemeSet {
         return copy(
@@ -142,7 +142,7 @@ data class ModifierThemeSet(
     }
 
     /**
-     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.NONE] theme.
+     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.OFF] theme.
      */
     fun withTextTriple(triple: Triple<String, String, String>): ModifierThemeSet {
         return copy(
@@ -153,7 +153,7 @@ data class ModifierThemeSet(
     }
 
     /**
-     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.NONE] theme.
+     * Return a copy of this [ModifierThemeSet] with the overwritten [ModifierKeyState.OFF] theme.
      */
     fun withTransparentBackground(): ModifierThemeSet {
         return copy(
@@ -168,9 +168,9 @@ data class ModifierThemeSet(
      */
     fun updateText(newText: String, modifierKeyState: ModifierKeyState) {
         when (modifierKeyState) {
-            ModifierKeyState.NONE -> none.text = newText
-            ModifierKeyState.ONCE -> once.text = newText
-            ModifierKeyState.REPEAT -> repeat.text = newText
+            ModifierKeyState.OFF -> none.text = newText
+            ModifierKeyState.ONE_SHOT -> once.text = newText
+            ModifierKeyState.ON -> repeat.text = newText
         }
     }
 
@@ -230,9 +230,9 @@ data class ModifierThemeSet(
 
     fun currentTheme(): ModifierTheme {
         return when (Keyboard.shiftState) {
-            ModifierKeyState.NONE -> none
-            ModifierKeyState.ONCE -> once
-            ModifierKeyState.REPEAT -> repeat
+            ModifierKeyState.OFF -> none
+            ModifierKeyState.ONE_SHOT -> once
+            ModifierKeyState.ON -> repeat
         }
     }
 

@@ -39,7 +39,7 @@ private fun checkSelection(
     keyboardContext: KeyboardContext,
 ): Pair<ExtractedText, CharSequence>? {
     val edit = keyboardContext.inputConnection.getExtractedText(ExtractedTextRequest(), 0) ?: return null
-    if (Keyboard.shiftState == ModifierKeyState.NONE) {
+    if (Keyboard.shiftState == ModifierKeyState.OFF) {
         Keyboard.selectionAnchor = TextSelectionAnchor.NONE
     }
     return edit to edit.text
@@ -299,7 +299,7 @@ object MoveLeft : CursorControl() {
         fun operate(keyboardContext: KeyboardContext) {
             val inputConnection = keyboardContext.inputConnection
             checkSelection(keyboardContext)?.let { (extractedText, _) ->
-                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.OFF) {
                     TextSelectionAnchor.currentPosition = extractedText.selectionStart
                 }
                 if(TextSelectionAnchor.currentPosition == null && extractedText.let{it.selectionStart != it.selectionEnd}) {
@@ -307,7 +307,7 @@ object MoveLeft : CursorControl() {
                     return
                 }
                 val previousIndexBeforeCurrentSelection = (extractedText.selectionStart - 1).coerceAtLeast(0)
-                if (Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (Keyboard.shiftState != ModifierKeyState.OFF) {
                     val position = TextSelectionAnchor.currentPosition!!
                     val hadNoPreviousSelection = extractedText.selectionStart == extractedText.selectionEnd
                     val cameFromTheRight = position > extractedText.selectionStart
@@ -337,7 +337,7 @@ object MoveRight : CursorControl() {
         fun operate(keyboardContext: KeyboardContext) {
             val inputConnection = keyboardContext.inputConnection
             checkSelection(keyboardContext)?.let { (extractedText, _) ->
-                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.OFF) {
                     TextSelectionAnchor.currentPosition = extractedText.selectionStart
                 }
                 if(TextSelectionAnchor.currentPosition == null && extractedText.let{it.selectionStart != it.selectionEnd}) {
@@ -345,7 +345,7 @@ object MoveRight : CursorControl() {
                     return
                 }
                 val nextIndexAfterCurrentSelection = (extractedText.selectionEnd + 1).coerceAtMost(extractedText.text.length)
-                if (Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (Keyboard.shiftState != ModifierKeyState.OFF) {
                     val position = TextSelectionAnchor.currentPosition!!
                     val hadNoPreviousSelection = extractedText.selectionStart == extractedText.selectionEnd
                     val cameFromTheLeft = position < extractedText.selectionEnd
@@ -376,7 +376,7 @@ object MoveWordLeft : CursorControl() {
         fun operate(keyboardContext: KeyboardContext) {
             val inputConnection = keyboardContext.inputConnection
             checkSelection(keyboardContext)?.let { (extractedText, chars) ->
-                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.OFF) {
                     TextSelectionAnchor.currentPosition = extractedText.selectionStart
                 }
                 if(TextSelectionAnchor.currentPosition == null && extractedText.let{it.selectionStart != it.selectionEnd}) {
@@ -388,7 +388,7 @@ object MoveWordLeft : CursorControl() {
                     val lastOrNull = indices.lastOrNull { it < extractedText.selectionStart }
                     lastOrNull
                 } ?: 0
-                if (Keyboard.shiftState != ModifierKeyState.NONE) {
+                if (Keyboard.shiftState != ModifierKeyState.OFF) {
                     val position = TextSelectionAnchor.currentPosition!!
                     val hadNoPreviousSelection = extractedText.selectionStart == extractedText.selectionEnd
                     val cameFromTheRight = position > extractedText.selectionStart
@@ -418,7 +418,7 @@ object MoveWordRight : CursorControl() {
     fun operate(keyboardContext: KeyboardContext) {
         val inputConnection = keyboardContext.inputConnection
         checkSelection(keyboardContext)?.let { (extractedText, chars) ->
-            if(TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.NONE) {
+            if(TextSelectionAnchor.currentPosition == null && Keyboard.shiftState != ModifierKeyState.OFF) {
                 TextSelectionAnchor.currentPosition = extractedText.selectionStart
             }
             if(TextSelectionAnchor.currentPosition == null && extractedText.let{it.selectionStart != it.selectionEnd}) {
@@ -430,7 +430,7 @@ object MoveWordRight : CursorControl() {
                 val firstOrNull = indices.firstOrNull { it > extractedText.selectionEnd }
                 firstOrNull
             }?.let { it + 1 } ?: extractedText.text.length
-            if(Keyboard.shiftState != ModifierKeyState.NONE){
+            if(Keyboard.shiftState != ModifierKeyState.OFF){
                 val position = TextSelectionAnchor.currentPosition!!
                 val hadNoPreviousSelection = extractedText.selectionStart == extractedText.selectionEnd
                 val cameFromTheLeft = position < extractedText.selectionEnd

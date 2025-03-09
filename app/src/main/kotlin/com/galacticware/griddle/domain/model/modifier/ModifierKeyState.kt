@@ -1,17 +1,17 @@
 package com.galacticware.griddle.domain.model.modifier
 
 /**
- * Keeps track of the state of a [ModifierKeyKind] to support none, one-shot, and held (i.e., [REPEAT]) modifiers.
+ * Keeps track of the state of a [ModifierKeyKind] to support none, one-shot, and held (i.e., [ON]) modifiers.
  */
 enum class ModifierKeyState {
-    NONE,
-    ONCE,
-    REPEAT,;
+    OFF,
+    ONE_SHOT,
+    ON,;
     companion object {
         val nextModifier = mapOf(
-            NONE to NONE,
-            ONCE to NONE,
-            REPEAT to REPEAT,
+            OFF to OFF,
+            ONE_SHOT to OFF,
+            ON to ON,
         )
     }
     fun cancelOneShotModifier(): ModifierKeyState {

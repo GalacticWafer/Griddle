@@ -108,18 +108,6 @@ class GriddleAppNavigation(
             startDestination = StartScreen,
         ) {
             composable<StartScreen> { StartScreen.Show() }
-            composable<ColorPicker> { ColorPicker.Show() }
-            composable<TextReplacementEditorScreen> {
-                TextReplacementEditorScreen.Show(
-                    onEvent = textReplacementViewModel::onEvent,
-                    state = textReplacementViewModel.state.collectAsState().value,
-                )
-            }
-            composable<LanguageSelectionScreen> {
-                LanguageSelectionScreen.Show()
-            }
-            composable<BuildYourOwnKeyboardScreen> { BuildYourOwnKeyboardScreen.Show() }
-            composable<AutoFixersScreen> { AutoFixersScreen.Show() }
         }
         if (isWarningAlertShown) {
             AlertDialog(

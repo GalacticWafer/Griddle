@@ -102,26 +102,26 @@ object ChangeModifier : ParameterizedOperation<ChangeModifierArgs>({}) {
 
     private fun applyOneShotModifier(kind: ModifierKeyKind, currentState: ModifierKeyState) {
         when (currentState) {
-            ModifierKeyState.NONE -> cycleModifier(FORWARD, kind)
-            ModifierKeyState.ONCE -> {}
-            ModifierKeyState.REPEAT -> cycleModifier(REVERSE, kind)
+            ModifierKeyState.OFF -> cycleModifier(FORWARD, kind)
+            ModifierKeyState.ONE_SHOT -> {}
+            ModifierKeyState.ON -> cycleModifier(REVERSE, kind)
         }
     }
 
     private fun releaseModifier(kind: ModifierKeyKind, currentState: ModifierKeyState) {
         when (currentState) {
-            ModifierKeyState.NONE -> {}
-            ModifierKeyState.ONCE -> cycleModifier(REVERSE, kind)
-            ModifierKeyState.REPEAT -> cycleModifier(FORWARD, kind)
+            ModifierKeyState.OFF -> {}
+            ModifierKeyState.ONE_SHOT -> cycleModifier(REVERSE, kind)
+            ModifierKeyState.ON -> cycleModifier(FORWARD, kind)
         }
     }
 
     private fun toggleModifier(modifierKeyKind: ModifierKeyKind) {
         val state = Keyboard.modifierKeyStateFor(modifierKeyKind)
         when (state){
-            ModifierKeyState.NONE -> cycleModifier(REVERSE, modifierKeyKind)
-            ModifierKeyState.ONCE -> cycleModifier(FORWARD, modifierKeyKind)
-            ModifierKeyState.REPEAT -> cycleModifier(FORWARD, modifierKeyKind)
+            ModifierKeyState.OFF -> cycleModifier(REVERSE, modifierKeyKind)
+            ModifierKeyState.ONE_SHOT -> cycleModifier(FORWARD, modifierKeyKind)
+            ModifierKeyState.ON -> cycleModifier(FORWARD, modifierKeyKind)
         }
     }
 }

@@ -7,9 +7,9 @@ import com.galacticware.griddle.domain.model.input.TextSelectionAnchor
  * Represents the state of the modifier keys on the keyboard.
  */
 class AppModifierState(
-    shift: ModifierKeyState = ModifierKeyState.NONE,
-    ctrl: ModifierKeyState = ModifierKeyState.NONE,
-    alt: ModifierKeyState = ModifierKeyState.NONE
+    shift: ModifierKeyState = ModifierKeyState.OFF,
+    ctrl: ModifierKeyState = ModifierKeyState.OFF,
+    alt: ModifierKeyState = ModifierKeyState.OFF
 ) {
     val value: Int get() = run {
         listOf(
@@ -17,7 +17,7 @@ class AppModifierState(
             ctrl to KeyEvent.META_CTRL_ON,
             alt to KeyEvent.META_ALT_ON,
         ).fold(0) { accumulator, it ->
-            accumulator or if(it.first != ModifierKeyState.NONE) it.second else 0
+            accumulator or if(it.first != ModifierKeyState.OFF) it.second else 0
         }
     }
 
@@ -39,7 +39,7 @@ class AppModifierState(
     }
 
     /**
-     * Turn all modifiers that are not set to [ModifierKeyState.REPEAT] to [ModifierKeyState.NONE].
+     * Turn all modifiers that are not set to [ModifierKeyState.ON] to [ModifierKeyState.OFF].
      */
     fun cancelOneShotModifiers() {
         _shift.cancelOneShotModifier()
@@ -54,7 +54,7 @@ class AppModifierState(
 
     val shift get() = run {
         val state = _shift.state
-        if(state == ModifierKeyState.NONE) TextSelectionAnchor.currentPosition = null
+        if(state == ModifierKeyState.OFF) TextSelectionAnchor.currentPosition = null
         state
     }
     val ctrl get() = _ctrl.state

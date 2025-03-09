@@ -6,7 +6,7 @@ package com.galacticware.griddle.domain.model.modifier
  */
 class AppModifierKey(
     val kind: ModifierKeyKind,
-    var state: ModifierKeyState = ModifierKeyState.NONE,
+    var state: ModifierKeyState = ModifierKeyState.OFF,
 ) {
 
     fun next(cycleDirection: ModifierCycleDirection = ModifierCycleDirection.FORWARD): ModifierKeyState {

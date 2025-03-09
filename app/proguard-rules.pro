@@ -22,3 +22,6 @@
 -keepclassmembers class com.google.gson.reflect.TypeToken {
     *;
 }
+
+-keep class com.galacticware.griddle.** { *; }
+-keepclassmembers class com.galacticware.griddle.** { *; }

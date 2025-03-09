@@ -162,7 +162,7 @@ object PreferencesHelper {
     }]
 
     fun getTurboModeChoice(context: Context): TurboModeChoice
-    = TurboModeChoice.entries[checkAndGetUserDefinedValue(context, GriddleSetting.IS_TURBO_ENABLED) {
+    = TurboModeChoice.entries[checkAndGetUserDefinedValue(context, GriddleSetting.IS_TURBO_MODE_ENABLED) {
         intValue -> setUserVibrationChoice(context, intValue)
     }]
 
@@ -340,6 +340,6 @@ object PreferencesHelper {
     }
 
     fun setTurboModeChoice(context: Context, newValue: Int) {
-        checkAndSetUserDefinedValue(context, newValue, GriddleSetting.IS_TURBO_ENABLED)
+        checkAndSetUserDefinedValue(context, newValue, GriddleSetting.IS_TURBO_MODE_ENABLED)
     }
 }

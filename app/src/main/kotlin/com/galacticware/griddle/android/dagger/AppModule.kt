@@ -11,12 +11,9 @@ import dagger.hilt.components.SingletonComponent
 import com.galacticware.griddle.domain.model.error.Errors
 import com.galacticware.griddle.domain.model.keyboard.Keyboard
 import com.galacticware.griddle.domain.model.keyboard.definition.designs.griddle.english.keyboard.GriddleEnglishKeyBoardBuilder
-import com.galacticware.griddle.domain.model.shared.gesturedetection.DefaultGestureDetector
-import com.galacticware.griddle.domain.model.shared.gesturedetection.IGestureDetector
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementDao
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementDatabase
 import com.galacticware.griddle.domain.model.textreplacement.TextReplacementViewModel
-import com.galacticware.griddle.domain.model.util.gesturedetection.CustomGestureDetectorProvider
 import com.galacticware.griddle.domain.view.KeyboardView
 import java.time.LocalDateTime
 import javax.inject.Singleton
@@ -37,10 +34,6 @@ interface KeyboardFactory {
 class AppModule(private val context: Context) {
     // empty constructor for hilt
     constructor() : this(Application())
-
-    @Provides
-    fun provideGestureDetector(): IGestureDetector =
-        CustomGestureDetectorProvider().provideGestureDetector() ?: DefaultGestureDetector
 
     @Provides
     fun provideKeyboardFactory(): KeyboardFactory {

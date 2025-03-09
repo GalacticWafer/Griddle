@@ -20,7 +20,7 @@ data class ChangeUserSettingArgs(
         val IncreaseVibrationAmplitude by lazy { ChangeUserSettingArgs(VIBRATION_AMPLITUDE, INCREASE) }
         val DecreaseVibrationAmplitude by lazy { ChangeUserSettingArgs(VIBRATION_AMPLITUDE, DECREASE) }
         val ToggleVibration by lazy { ChangeUserSettingArgs(IS_VIBRATION_ENABLED, TOGGLE) }
-        val ToggleTurboMode by lazy { ChangeUserSettingArgs(IS_TURBO_ENABLED, DECREASE) }
+        val ToggleTurboMode by lazy { ChangeUserSettingArgs(IS_TURBO_MODE_ENABLED, DECREASE) }
         val ToggleGestureTracing by lazy { ChangeUserSettingArgs(IS_GESTURE_TRACING_ENABLED, DECREASE) }
         val DecreaseMinimumDragLength by lazy { ChangeUserSettingArgs(MINIMUM_DRAG_LENGTH, DECREASE) }
         val IncreaseMinimumDragLength by lazy { ChangeUserSettingArgs(MINIMUM_DRAG_LENGTH, INCREASE) }
