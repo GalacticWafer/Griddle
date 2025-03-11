@@ -31,7 +31,7 @@ android {
 
     val majorVersion = 1
     val minorVersion = 1
-    val iteration = 2
+    val iteration = 3
     defaultConfig {
         applicationId = "com.galacticware.keyboards.griddle"
         minSdk = 26
