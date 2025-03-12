@@ -169,4 +169,8 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
 
     implementation(libs.splitties.views)
+
+    // WorkerManager
+    // https://developer.android.com/reference/androidx/work/WorkManager
+    implementation(libs.androidx.work.runtime)
 }
